@@ -13,7 +13,7 @@
 #' team_results_bref("TBR", 2008)
 
 team_results_bref <-function(Tm, year) {
-  data <- read_html(paste0("http://www.baseball-reference.com/teams/", Tm, "/", year, "-schedule-scores.shtml")) %>% html_nodes("table")
+  data <- read_html(paste0("https://www.baseball-reference.com/teams/", Tm, "/", year, "-schedule-scores.shtml")) %>% html_nodes("table")
   data <- data[[length(data)]] %>% html_table() %>% `[`(-3) %>%
     rename(Record = `W-L`, Result = `W/L`, Gm = `Gm#`)
 
@@ -37,7 +37,7 @@ team_results_bref <-function(Tm, year) {
   data$Year <- year
   data <- data[, 1:ncol(data)]
   data <- data %>%
-    filter(!grepl("Gm#", Gm))
+    dplyr::filter_(~!grepl("Gm#", Gm))
 
   return(data)
 }
