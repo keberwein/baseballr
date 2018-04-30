@@ -2,17 +2,17 @@
 % Please edit documentation in R/statline_from_statcast.R
 \name{statline_from_statcast}
 \alias{statline_from_statcast}
-\title{Create statlines that includecount and rate metrics for players based on Statcast or PITCHf/x pitch-by-pitch data}
+\title{Create statlines that include count and rate metrics for players based on Statcast or PITCHf/x pitch-by-pitch data}
 \usage{
 statline_from_statcast(df, base = "swings")
 }
 \arguments{
 \item{df}{A data frame of statistics that includes, at a minimum, the following columns: events, description, game_date, and type.}
 
-\item{base}{Tells the function what to use as the population of pitches to use for the statline. Either swings or contact. Defaults to swings.}
+\item{base}{Tells the function what to use as the population of pitches to use for the statline. Either "swings" or "contact". Defaults to swings.}
 }
 \description{
-This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x dat.
+This function allows you to create statlines of statistics for players or groups of players from raw Statcast or PITCHf/x data. When calculating wOBA, the most recent year in the data frame is used for weighting.
 }
 \examples{
 \dontrun{
